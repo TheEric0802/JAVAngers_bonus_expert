@@ -18,5 +18,11 @@ public class Main {
         Arrays.sort(numbers);
 
         System.out.println(Arrays.toString(numbers));
+
+        System.out.println(Arrays.toString(csvToArray("Affe,Banane,Pferd,Tisch")));
+    }
+
+    public static String[] csvToArray(String csv) {
+        return csv.split(",");
     }
 }
