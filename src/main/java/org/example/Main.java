@@ -42,60 +42,17 @@ public class Main {
     }
 
     public static String getRomanNumber(int number) {
-        String romanNumber = "";
-        while (number >= 1000) {
-            romanNumber += "M";
-            number -= 1000;
-        }
-        while (number >= 900) {
-            romanNumber += "CM";
-            number -= 900;
-        }
-        while (number >= 500) {
-            romanNumber += "D";
-            number -= 500;
-        }
-        while (number >= 400) {
-            romanNumber += "CD";
-            number -= 400;
-        }
-        while (number >= 100) {
-            romanNumber += "C";
-            number -= 100;
-        }
-        while (number >= 90) {
-            romanNumber += "XC";
-            number -= 90;
-        }
-        while (number >= 50) {
-            romanNumber += "L";
-            number -= 50;
-        }
-        while (number >= 40) {
-            romanNumber += "XL";
-            number -= 40;
-        }
-        while (number >= 10) {
-            romanNumber += "X";
-            number -= 10;
-        }
-        while (number >= 9) {
-            romanNumber += "IX";
-            number -= 9;
-        }
-        while (number >= 5) {
-            romanNumber += "V";
-            number -= 5;
-        }
-        while (number >= 4) {
-            romanNumber += "IV";
-            number -= 4;
-        }
-        while (number >= 1) {
-            romanNumber += "I";
-            number -= 1;
+        StringBuilder romanNumber = new StringBuilder();
+        int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
+        String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
+
+        for (int i = 0; i < values.length; i++) {
+            while (number >= values[i]) {
+                romanNumber.append(symbols[i]);
+                number -= values[i];
+            }
         }
 
-        return romanNumber;
+        return romanNumber.toString();
     }
 }
